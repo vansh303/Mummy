@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Ki Baat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebf0;
+            font-family: 'Dancing Script', cursive;
+            flex-direction: column;
+        }
+
+        .message-box {
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family: inherit;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #e91e63;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message-box" id="messageBox">Tap on "Dil Ki Baat" ❤️</div>
+    <button class="button" onclick="showMessage()">Dil Ki Baat</button>
+
+    <script>
+        const messages = [
+            "Maa-Papa, aap meri duniya ho! ❤️",
+            "Aapki hasi hi meri khushi hai 😊",
+            "Main hamesha aapko proud feel karana chahti hoon!",
+            "Bachpan ki kahaniyan aaj bhi dil ko choo jaati hain ❤️",
+            "Aapke bina meri duniya adhuri hai!",
+            "Maa-Papa, bas aapke saath waqt bitana chahti hoon! 🥰",
+            "Mujhe hamesha aapka aashirwad chahiye! 🙏"
+        ];
+
+        function showMessage() {
+            let randomIndex = Math.floor(Math.random() * messages.length);
+            let messageBox = document.getElementById("messageBox");
+            
+            messageBox.textContent = messages[randomIndex];
+            messageBox.classList.add("show");
+
+            setTimeout(() => {
+                messageBox.classList.remove("show");
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

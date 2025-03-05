@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Digital Memory Book</title>
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.welcome-container {
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.enter-btn {
+    background-color: white;
+    color: #ff4b7d;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.enter-btn:hover {
+    background-color: #ff4b7d;
+    color: white;
+}
+
+.nav-links {
+    margin: 20px 0;
+}
+
+.nav-links a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: white;
+    color: #ff4b7d;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Heart Animation */
+.heart-animation {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url('heart.gif') no-repeat center;
+    background-size: contain;
+    animation: heartMove 3s infinite alternate ease-in-out;
+}
+
+@keyframes heartMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="welcome-container">
+        <div class="heart-animation"></div>
+        <h1>Welcome to Your Special Memory Book 💖</h1>
+        
+        <div class="nav-links">
+            <a href="image.html">📷 Photos</a>
+            
+            <a href="dilkibaat.html">💖 Dil Ki Baat</a>
+            <a href="magic.html">🪞 Magic Mirror</a>
+            <a href="letter.html">✉️ Letter</a>
+        </div>
+
+        <button class="enter-btn" onclick="startMemoryBook()">Start Memory Book</button>
+    </div>
+
+    <script>
+        function startMemoryBook() {
+            document.getElementById("bg-music").play();
+            window.location.href = "memorybook.html";
+        }
+    </script>
+</body>
+</html>

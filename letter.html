@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Parents</title>
+    <style>
+        body {
+            background-color: #f5e1da;
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .letter-container {
+            background: white;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .letter-text {
+            font-size: 18px;
+            color: #4a2c2a;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow: hidden;
+            border-right: 2px solid black;
+            display: inline-block;
+            text-align: left;
+            width: 0;
+            animation: typing 4s steps(40) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .heart-animation {
+            font-size: 24px;
+            color: red;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: heartBounce 2s infinite;
+        }
+
+        @keyframes heartBounce {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-10px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="letter-container">
+        <h2>💌 Shayari for You</h2>
+        <p class="letter-text">
+            Dil ne kaha aaj kuch khaas likhun,
+Woh jo mehsoos kiya hai, woh alfaaz likhun.
+Aapki hasi ek mehka hua gulshan lage,
+Aapki baatein ek pyaari si dhun lage.
+
+Aapse milkar jaana, maa sirf rishto se nahi hoti,
+Woh ehsaas hoti hai, jo har dukh ko mita deti.
+Aapki naram awaaz, aapka pyaara andaaz,
+Dil ke kone me basa hai ek khoobsurat aabhaas.
+
+Bas yahi dua hai, aap hamesha haste raho,
+Zindagi ki har subah naye suroor se bhari rahe.
+Aapke pyaar ka saya yun hi bana rahe,
+Aur har din khushiyon se roshan rahe
+. ❤️
+        </p>
+        <div class="heart-animation">❤️</div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+</html>

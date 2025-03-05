@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube Image Gallery</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+        :root {
+            font-size: 10px;
+            --border-color: rgb(44, 3, 52);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", Arial, sans-serif;
+            font-weight: 500;
+            min-height: 100vh;
+            background-color: #e808d9;
+            color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cube-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            perspective: 1000px;
+            margin: 2rem auto;
+        }
+
+        .cube {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--border-color);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 0.5rem #fff, 0 0 1.5rem var(--border-color), 0 0 3rem var(--border-color);
+        }
+
+        .image-1 { transform: translateZ(125px); }
+        .image-2 { transform: rotateY(180deg) translateZ(125px); }
+        .image-3 { transform: rotateY(90deg) translateZ(125px); }
+        .image-4 { transform: rotateY(-90deg) translateZ(125px); }
+        .image-5 { transform: rotateX(90deg) translateZ(125px); }
+        .image-6 { transform: rotateX(-90deg) translateZ(125px); }
+
+        .cube.initial-position {
+            transform: translateZ(-125px) rotateX(-15deg) rotateY(18deg);
+        }
+
+        .image-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .image-buttons input {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            border: 2px solid #fafafa;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .image-buttons input:hover {
+            transform: scale(1.1);
+        }
+
+        .cube.show-image-1 { transform: translateZ(-125px); }
+        .cube.show-image-2 { transform: translateZ(-125px) rotateY(180deg); }
+        .cube.show-image-3 { transform: translateZ(-125px) rotateY(-90deg); }
+        .cube.show-image-4 { transform: translateZ(-125px) rotateY(90deg); }
+        .cube.show-image-5 { transform: translateZ(-125px) rotateX(-90deg); }
+        .cube.show-image-6 { transform: translateZ(-125px) rotateX(90deg); }
+
+    </style>
+</head>
+<body>
+
+    <h1>3D Cube Image Gallery</h1>
+
+    <div class="cube-container">
+        <div class="cube initial-position">
+            <div class="cube-face image-1"></div>
+            <div class="cube-face image-2"></div>
+            <div class="cube-face image-3"></div>
+            <div class="cube-face image-4"></div>
+            <div class="cube-face image-5"></div>
+            <div class="cube-face image-6"></div>
+        </div>
+    </div>
+
+    <h2>Click on an image to rotate the cube</h2>
+
+    <div class="image-buttons">
+        <input type="image" class="show-image-1" src="https://i.ibb.co/nsgk8JSn/IMG-20250305-224117.jpg">
+        <input type="image" class="show-image-2" src="https://i.ibb.co/FLJXqLht/IMG-20250305-224622.jpg">
+        <input type="image" class="show-image-3" src="https://i.ibb.co/jkNdvyBb/IMG-20250305-224718.jpg">
+        <input type="image" class="show-image-4" src="https://i.ibb.co/0yJPvBH7/IMG-20250305-225021.jpg">
+        <input type="image" class="show-image-5" src="https://i.ibb.co/NnW76KnX/IMG-20250305-225113.jpg">
+        <input type="image" class="show-image-6" src="https://i.ibb.co/ymhFpVnf/IMG-20250305-225141.jpg">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cube = document.querySelector(".cube"),
+                  buttons = document.querySelector(".image-buttons"),
+                  faces = document.querySelectorAll(".cube-face");
+
+            let cubeClass = cube.classList[1];
+
+            // Automatically set images to cube faces
+            document.querySelectorAll(".image-buttons input").forEach((button, index) => {
+                faces[index].style.backgroundImage = `url(${button.src})`;
+            });
+
+            buttons.addEventListener("click", (e) => {
+                if (e.target.nodeName === "INPUT" && e.target.className !== cubeClass) {
+                    cube.classList.replace(cubeClass, e.target.className);
+                    cubeClass = e.target.className;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
